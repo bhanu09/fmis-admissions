@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Plan overnight admissions across configurable care teams."><title>Overnight Admissions Planner</title><link rel="stylesheet" href="./style.css"><script type="module" src="./app.mjs"></script></head>
+<body>
+<header><div class="brand"><span class="mark" aria-hidden="true">✚</span> Overnight Admissions</div><span class="header-label">Census planner</span></header>
+<main>
+<section class="intro"><p class="eyebrow">ADMISSIONS WORKSPACE</p><h1>Overnight admissions</h1><p>Enter your current census to plan the next four patient assignments.</p></section>
+<div class="workspace">
+<section class="panel input-panel" aria-labelledby="census-title">
+<div class="section-head"><div><h2 id="census-title">Current census</h2><p>Enter the number of patients on each team.</p></div><span class="tag" id="team-total"></span></div>
+<form id="planner">
+<div id="counts"></div>
+<label class="field call">Previous on-call team<select id="oncall" required></select></label>
+<div class="actions"><button class="primary" type="submit">Calculate assignments</button><button type="button" id="reset">Reset</button></div>
+</form></section>
+<section class="panel result-panel" aria-labelledby="result-title"><div class="section-head"><div><h2 id="result-title">Next 4 assignments</h2><p>Suggested order for incoming patients.</p></div></div>
+<div id="results" aria-live="polite"></div></section>
+</div>
+<details class="panel settings"><summary>Team settings <span>Names &amp; limits</span></summary>
+<div class="settings-body"><p>A hard cap blocks new assignments. A soft cap or maximum difference can be exceeded when every team with capacity would otherwise be skipped. The difference is measured against the lowest other team’s census.</p>
+<form id="teams-form"><div id="teams"></div><div class="actions"><button type="button" id="add">+ Add team</button><button class="primary" type="submit">Save settings</button><button type="button" id="defaults">Restore defaults</button></div><p id="settings-status" role="status"></p></form></div>
+</details>
+<footer>Team settings are saved in this browser.</footer>
+</main></body></html>
